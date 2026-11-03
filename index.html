@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER 1 <ZIAZIZI></title>
+    <meta name="description" content="Portofolio 8-Bit Pixel Art Moch. Azizi Alfarizki - Full-Stack Developer & System Analyst.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for 8-bit / Pixel Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Devicon Programming Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=2.7">
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between relative selection:bg-white selection:text-black">
+
+    <!-- CRT Scanlines Overlay -->
+    <div id="scanlines-layer" class="scanlines"></div>
+
+    <!-- Header Navigation Section -->
+    <div data-include="sections/header.html"></div>
+
+    <!-- Main Container (Full-page Width) -->
+    <main class="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 pb-16 w-full space-y-16">
+
+        <!-- 1. Hero / Character Status Card -->
+        <div data-include="sections/hero.html"></div>
+
+        <!-- 2. Profile / About Me Lore -->
+        <div data-include="sections/profile.html"></div>
+
+        <!-- 3. Completed Quests (Projects) -->
+        <div data-include="sections/projects.html"></div>
+
+        <!-- 4. Skills / Inventory Equipment -->
+        <div data-include="sections/skills.html"></div>
+
+        <!-- 5. Creative Lab & Side Quests -->
+        <div data-include="sections/creative.html"></div>
+
+        <!-- 6. High Score Terminal (Contact Form) -->
+        <div data-include="sections/contact.html"></div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <div data-include="sections/footer.html"></div>
+
+    <!-- Modular Script Loader & Interactive Features -->
+    <script src="script.js?v=2.7"></script>
+</body>
+</html>

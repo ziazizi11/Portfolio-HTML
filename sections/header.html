@@ -1,0 +1,33 @@
+<!-- Retro Header / Navigation -->
+<header class="sticky top-0 z-50 bg-black border-b-4 border-white px-4 sm:px-8 py-3">
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+        <a href="#" class="font-pixel text-xs sm:text-sm text-white tracking-wider flex items-center gap-2">
+            <span class="text-white blink">▶</span> PORTFOLIO
+        </a>
+
+        <!-- Menu Links -->
+        <nav class="hidden md:flex items-center gap-6 font-pixel text-[10px]">
+            <a href="#status" class="hover:underline">STATS</a>
+            <a href="#profile" class="hover:underline">PROFILE</a>
+            <a href="#projects" class="hover:underline">QUESTS</a>
+            <a href="#skills" class="hover:underline">INVENTORY</a>
+            <a href="#creative" class="hover:underline">CREATIVE</a>
+            <a href="#contact" class="hover:underline">CONTACT</a>
+        </nav>
+
+        <!-- Actions Container: Theme Toggle & CRT Toggle -->
+        <div class="flex items-center gap-2">
+            <!-- Toggle Theme (Light / Night) -->
+            <button id="toggle-theme" class="font-pixel text-[9px] border-2 border-white px-2 py-1 hover:bg-white hover:text-black transition-colors flex items-center gap-1.5" title="Ganti Tema Light / Night">
+                <i class="fa-solid fa-moon text-[8px]" id="theme-icon"></i>
+                <span>THEME:</span> <span id="theme-status">NIGHT</span>
+            </button>
+
+            <!-- Toggle CRT Scanlines -->
+            <button id="toggle-crt" class="font-pixel text-[9px] border-2 border-white px-2 py-1 hover:bg-white hover:text-black transition-colors" title="Toggle Scanline CRT Effect">
+                CRT: <span id="crt-status">ON</span>
+            </button>
+        </div>
+    </div>
+</header>
+

@@ -1,0 +1,606 @@
+:root {
+    --pixel-bg: #000000;
+    --pixel-card: #0d0d0d;
+    --pixel-border: #ffffff;
+    --pixel-text: #ffffff;
+    --pixel-dim: #888888;
+}
+
+body {
+    background-color: var(--pixel-bg);
+    color: var(--pixel-text);
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    image-rendering: pixelated;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-pixel {
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* CRT Scanline Overlay Effect */
+.scanlines {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    pointer-events: none;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.4) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 99;
+    opacity: 0.6;
+}
+
+/* Pixel Border Box Utility */
+.pixel-box {
+    background-color: #0c0c0c;
+    border: 4px solid #ffffff;
+    box-shadow: 
+        -4px 0 0 0 #000, 
+         4px 0 0 0 #000, 
+         0 -4px 0 0 #000, 
+         0  4px 0 0 #000,
+         0 0 0 4px #fff;
+    margin: 4px;
+    transition: all 0.2s ease;
+}
+
+.pixel-box-sm {
+    border: 2px solid #ffffff;
+    background-color: #0c0c0c;
+}
+
+/* Retro Button Effect */
+.pixel-btn {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #666666;
+    transition: all 0.1s ease;
+}
+
+.pixel-btn:hover {
+    background-color: #cccccc;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #666666;
+}
+
+.pixel-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #000000;
+}
+
+.pixel-btn-outline {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 4px 4px 0px #333333;
+}
+
+.pixel-btn-outline:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+
+::selection {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Blink effect */
+@keyframes pixelBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.blink {
+    animation: pixelBlink 1s infinite;
+}
+
+/* =========================================
+   LIGHT / DAY THEME (Retro Paper / Monochrome)
+   ========================================= */
+body.light-mode {
+    background-color: #f5f5f0 !important;
+    color: #111111 !important;
+}
+
+body.light-mode .scanlines {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0) 50%, 
+        rgba(0, 0, 0, 0.12) 50%
+    );
+    background-size: 100% 4px;
+    opacity: 0.35;
+}
+
+body.light-mode .bg-black {
+    background-color: #ffffff !important;
+}
+
+body.light-mode .bg-black\/50 {
+    background-color: #f0f0eb !important;
+}
+
+body.light-mode .bg-gray-900 {
+    background-color: #deded8 !important;
+}
+
+body.light-mode .text-white {
+    color: #111111 !important;
+}
+
+body.light-mode .text-gray-200,
+body.light-mode .text-gray-300 {
+    color: #2b2b2b !important;
+}
+
+body.light-mode .text-gray-400 {
+    color: #555555 !important;
+}
+
+body.light-mode .border-white {
+    border-color: #111111 !important;
+}
+
+body.light-mode .border-gray-600,
+body.light-mode .border-gray-700,
+body.light-mode .border-gray-800 {
+    border-color: #c4c4be !important;
+}
+
+/* Box & Cards in Light Mode */
+body.light-mode .pixel-box {
+    background-color: #ffffff;
+    border: 4px solid #111111;
+    box-shadow: 
+        -4px 0 0 0 #f5f5f0, 
+         4px 0 0 0 #f5f5f0, 
+         0 -4px 0 0 #f5f5f0, 
+         0  4px 0 0 #f5f5f0, 
+         0 0 0 4px #111111;
+}
+
+body.light-mode .pixel-box-sm {
+    border: 2px solid #111111;
+    background-color: #ffffff;
+}
+
+/* Buttons in Light Mode */
+body.light-mode .pixel-btn {
+    background-color: #111111;
+    color: #ffffff;
+    box-shadow: 4px 4px 0px #888888;
+}
+
+body.light-mode .pixel-btn:hover {
+    background-color: #333333;
+    box-shadow: 2px 2px 0px #888888;
+}
+
+body.light-mode .pixel-btn-outline {
+    background-color: #ffffff;
+    color: #111111;
+    border: 2px solid #111111;
+    box-shadow: 4px 4px 0px #bbbbbb;
+}
+
+body.light-mode .pixel-btn-outline:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+/* Stat progress bar fills in Light Mode */
+body.light-mode .stat-bar-fill {
+    background-color: #111111 !important;
+}
+
+/* Avatar Level tag in Light Mode */
+body.light-mode .avatar-lvl {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+}
+
+/* Header buttons in Light Mode */
+body.light-mode #toggle-crt,
+body.light-mode #toggle-theme {
+    border-color: #111111;
+    color: #111111;
+}
+
+body.light-mode #toggle-crt:hover,
+body.light-mode #toggle-theme:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+/* Forms & Inputs in Light Mode */
+body.light-mode input,
+body.light-mode textarea {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border-color: #111111 !important;
+}
+
+body.light-mode input:focus,
+body.light-mode textarea:focus {
+    background-color: #f7f7f2 !important;
+}
+
+body.light-mode #form-feedback {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border-color: #111111 !important;
+}
+
+/* Scrollbar & Selection in Light Mode */
+body.light-mode::-webkit-scrollbar-track {
+    background: #e5e5df;
+}
+body.light-mode::-webkit-scrollbar-thumb {
+    background: #111111;
+}
+
+body.light-mode ::selection {
+    background: #111111 !important;
+    color: #ffffff !important;
+}
+
+/* =========================================
+   CREATIVE SECTION UTILITIES
+   ========================================= */
+.pixel-cell {
+    width: 22px;
+    height: 22px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    transition: background-color 0.1s ease;
+}
+
+.pixel-cell.active {
+    background-color: #ffffff;
+}
+
+body.light-mode .pixel-cell {
+    background-color: #ffffff;
+    border-color: #cccccc;
+}
+
+body.light-mode .pixel-cell.active {
+    background-color: #111111;
+}
+
+.sfx-btn:active {
+    transform: translate(2px, 2px);
+}
+
+/* =========================================
+   TECH BOX / MINI PIXEL BOX UTILITIES
+   ========================================= */
+.tech-box {
+    background-color: #0c0c0c;
+    border: 2px solid #ffffff;
+    box-shadow: 3px 3px 0px #333333;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+    cursor: default;
+}
+
+.tech-box:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px #ffffff;
+    background-color: #141414;
+    border-color: #ffffff;
+}
+
+body.light-mode .tech-box {
+    background-color: #ffffff;
+    border-color: #111111;
+    box-shadow: 3px 3px 0px #cccccc;
+}
+
+body.light-mode .tech-box:hover {
+    background-color: #f7f7f2;
+    box-shadow: 5px 5px 0px #111111;
+    border-color: #111111;
+}
+
+/* =========================================
+   TIMELINE BADGE & PHILOSOPHY UTILITIES
+   ========================================= */
+.timeline-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    border: 1px solid #666666;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 2px 2px 0px #000000;
+}
+
+.timeline-badge.timeline-badge-active {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 2px 2px 0px #333333;
+}
+
+.philosophy-box {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Light Mode Overrides for Timeline & Fast facts */
+body.light-mode .timeline-badge {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border: 2px solid #111111 !important;
+    box-shadow: 2px 2px 0px #cccccc !important;
+}
+
+body.light-mode .timeline-badge.timeline-badge-active {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border: 2px solid #111111 !important;
+    box-shadow: 2px 2px 0px #888888 !important;
+}
+
+body.light-mode .philosophy-box {
+    background-color: #ffffff !important;
+    border-color: #999999 !important;
+}
+
+body.light-mode .philosophy-box p {
+    color: #111111 !important;
+}
+
+body.light-mode .bg-black\/40,
+body.light-mode .bg-black\/50,
+body.light-mode .bg-black\/60 {
+    background-color: #f2f2ed !important;
+}
+
+body.light-mode .bg-gray-800 {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border-color: #111111 !important;
+}
+
+/* =========================================
+   PROFILE PHOTO FRAME
+   ========================================= */
+.profile-photo-frame {
+    background-color: #0c0c0c;
+    border: 2px solid #ffffff;
+    box-shadow: 4px 4px 0px #333333;
+    position: relative;
+}
+
+body.light-mode .profile-photo-frame {
+    background-color: #ffffff;
+    border-color: #111111;
+    box-shadow: 4px 4px 0px #cccccc;
+}
+
+/* Photo Corner LVL Badge */
+.photo-lvl-tag {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
+
+body.light-mode .photo-lvl-tag {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================
+   SNAKE ARCADE GAME UTILITIES
+   ========================================= */
+#snake-canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+body.light-mode #snake-canvas {
+    background-color: #f5f5f0 !important;
+    border-color: #111111 !important;
+}
+
+body.light-mode #snake-overlay {
+    background-color: rgba(245, 245, 240, 0.92) !important;
+}
+
+body.light-mode #snake-msg-title {
+    color: #111111 !important;
+}
+
+body.light-mode #snake-msg-subtitle {
+    color: #555555 !important;
+}
+
+body.light-mode .arcade-cabinet-station {
+    background-color: #edece6 !important;
+    border-color: #111111 !important;
+}
+
+body.light-mode .arcade-control-deck {
+    background-color: #f8f8f4 !important;
+    border-color: #cccccc !important;
+}
+
+body.light-mode .arcade-control-deck p {
+    color: #555555 !important;
+}
+
+body.light-mode .arcade-control-deck span.text-gray-400 {
+    color: #666666 !important;
+}
+
+body.light-mode .arcade-control-deck span.text-gray-300 {
+    color: #222222 !important;
+}
+
+body.light-mode .arcade-control-deck .bg-gray-800 {
+    background-color: #e2e2dc !important;
+    color: #111111 !important;
+    border-color: #999999 !important;
+}
+
+body.light-mode .arcade-control-deck .bg-black\/60 {
+    background-color: #e8e8e2 !important;
+    border-color: #cccccc !important;
+}
+
+.snake-dpad {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+/* =========================================
+   GACHA & TERMINAL UTILITIES
+   ========================================= */
+#terminal-output::-webkit-scrollbar {
+    width: 4px;
+}
+
+#terminal-output::-webkit-scrollbar-thumb {
+    background-color: #22c55e;
+}
+
+.term-chip {
+    cursor: pointer;
+    user-select: none;
+}
+
+.term-chip:hover {
+    transform: translateY(-1px);
+}
+
+.term-chip:active {
+    transform: translateY(1px);
+}
+
+body.light-mode #gacha-card {
+    background-color: #f7f7f2 !important;
+    border-color: #bbbbbb !important;
+}
+
+body.light-mode #gacha-title {
+    color: #111111 !important;
+}
+
+body.light-mode #gacha-desc {
+    color: #444444 !important;
+}
+
+body.light-mode .term-chip {
+    border-color: #bbbbbb !important;
+    color: #444444 !important;
+}
+
+body.light-mode .term-chip:hover {
+    border-color: #111111 !important;
+    color: #111111 !important;
+    background-color: #e5e5e0 !important;
+}
+
+/* =========================================
+   CONTACT & ACHIEVEMENT CARDS UTILITIES
+   ========================================= */
+.contact-card {
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+body.light-mode .contact-card {
+    background-color: #fdfdfa !important;
+    border-color: #111111 !important;
+}
+
+body.light-mode .contact-card .w-10 {
+    background-color: #f0f0ea !important;
+    border-color: #888888 !important;
+}
+
+body.light-mode .contact-card div.font-pixel {
+    color: #111111;
+}
+
+body.light-mode .contact-card p,
+body.light-mode .contact-card div.font-mono {
+    color: #444444;
+}
+
+/* =========================================
+   RETRO SCROLL REVEAL (ANIMASI IN & OUT)
+   ========================================= */
+.pixel-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.pixel-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pixel-reveal-left {
+    opacity: 0;
+    transform: translateX(-35px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.pixel-reveal-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pixel-reveal,
+    .pixel-reveal-left {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
